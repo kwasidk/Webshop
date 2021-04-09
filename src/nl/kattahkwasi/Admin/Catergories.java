@@ -1,6 +1,7 @@
 package nl.kattahkwasi.Admin;
 
 import nl.kattahkwasi.Main.App;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -38,6 +39,23 @@ public class Catergories
     }
 
 
+    public static void addCategories() {
+        scanner.nextLine();
+
+        try {
+            System.out.print("Add a categories: ");
+            String category = scanner.nextLine();
+            App.DATABASE.addCategory(category);
+            System.out.println("You've successfully added a category");
+            System.out.println();
+
+            menuCategories();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void editCategories() {
         try {
             App.DATABASE.printCategories();
@@ -57,28 +75,12 @@ public class Catergories
     public static void deleteCategories() {
         scanner.nextLine();
 
-        try{
+        try {
             App.DATABASE.printCategories();
             System.out.println("Which category do you want to delete? Select the ID");
             int id = scanner.nextInt();
             App.DATABASE.deleteCategory(id);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void addCategories() {
-        scanner.nextLine();
-
-        try {
-            System.out.print("Add a categories: ");
-            String category = scanner.nextLine();
-            App.DATABASE.getAddCategories(category);
-            System.out.println("You've successfully added a category");
-            System.out.println();
-
-            menuCategories();
         } catch (SQLException e) {
             e.printStackTrace();
         }

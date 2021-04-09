@@ -1,14 +1,17 @@
 package nl.kattahkwasi.Main;
 
+import java.sql.SQLException;
 import java.util.Scanner;
+
 import nl.kattahkwasi.Admin.Catergories;
+import nl.kattahkwasi.Admin.Products;
 
 public class Dashboard
 {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void customerDashboard(){
+    public static void customerDashboard() {
         System.out.println("IT WORRRRKKSSSSS :) ");
 
         Boolean hasAccess = true;
@@ -22,7 +25,8 @@ public class Dashboard
                 case 2:
                     break;
                 default:
-                    System.out.println("Choice invalid, try again:\n1.Login\n2.Register");
+                    System.out.println("Choice invalid, try again!");
+                    continue;
             }
 
             hasAccess = false;
@@ -31,9 +35,10 @@ public class Dashboard
 
     }
 
-    public static void adminDashboard(){
+    public static void adminDashboard() throws SQLException {
         System.out.println("Welcome Admin, make a choice!\f");
-        System.out.print("1. View Categories: ");
+        System.out.println("1. Go to categories menu ");
+        System.out.println("2. Go to products menu ");
         Boolean hasAccess = true;
 
         while (hasAccess) {
@@ -43,6 +48,9 @@ public class Dashboard
                     Catergories.menuCategories();
                     break;
                 case 2:
+                    Products.menuProducts();
+                    break;
+                case 3:
                     break;
                 default:
                     System.out.println("Choice invalid, try again!");
@@ -52,7 +60,6 @@ public class Dashboard
             hasAccess = false;
         }
     }
-
 
 
 }

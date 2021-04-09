@@ -1,6 +1,5 @@
 package nl.kattahkwasi.Main;
 
-import nl.kattahkwasi.Admin.*;
 
 import java.sql.SQLException;
 

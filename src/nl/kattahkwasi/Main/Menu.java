@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Menu
 {
 
-
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void HomepageChoices() throws SQLException {
@@ -16,7 +15,6 @@ public class Menu
         System.out.println("1.Login\n2.Register");
 
         while (true) {
-
             int pageChoice = scanner.nextInt();
             switch (pageChoice) {
                 case 1:
@@ -77,7 +75,6 @@ public class Menu
         HomepageChoices();
 
     }
-
 
 
 }
